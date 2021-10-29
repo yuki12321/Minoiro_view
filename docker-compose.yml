@@ -1,14 +1,15 @@
 version: "3"
 services:
-  db:
+  db: 
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: rails-front-demo-db
+
     ports:
       - "3306:3306"
     volumes:
-      - rails-db:/var/lib/mysql
+      - ./tmp/db:/var/lib/mysql/data
  
   web: &web
     build: .
