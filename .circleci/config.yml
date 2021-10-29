@@ -7,10 +7,10 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:3.0.2
-    working_directory: ~/myapp
+    working_directory: ~/Minoiro_view
     steps:
       - checkout:
-          path: ~/myapp
+          path: ~/Minoiro_view
       - ruby/install-deps
 
   test:
@@ -20,15 +20,16 @@ jobs:
         environment:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: rails-front-demo-db
+          MYSQL_USER: root
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
       APP_DATABASE_HOST: "127.0.0.1"
       RAILS_ENV: test
-    working_directory: ~/myapp
+    working_directory: ~/Minoiro_view
     steps:
       - checkout:
-          path: ~/myapp
+          path: ~/Minoiro_view
       - ruby/install-deps
       - run:
           name: Database setup
