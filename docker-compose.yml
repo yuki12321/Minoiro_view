@@ -9,7 +9,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./tmp/db:/var/lib/mysql/data
+      - rails-db:/var/lib/mysql
  
   web: &web
     build: .
